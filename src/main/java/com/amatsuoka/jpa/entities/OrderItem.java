@@ -29,20 +29,20 @@ public class OrderItem {
 		this.quantity = quantity;
 		this.price = price;
 	}
-	
+
 	@JsonIgnore
 	public Order getOrder() {
 		return id.getOrder();
 	}
-	
+
 	public void setOrder(Order order) {
 		id.setOrder(order);
 	}
-	
+
 	public Product getProduct() {
 		return id.getProduct();
 	}
-	
+
 	public void setProduct(Product product) {
 		id.setProduct(product);
 	}
@@ -63,6 +63,10 @@ public class OrderItem {
 		this.price = price;
 	}
 
+	public Double getSubTotal() {
+		return price * quantity;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -79,6 +83,5 @@ public class OrderItem {
 		OrderItem other = (OrderItem) obj;
 		return Objects.equals(id, other.id);
 	}
-	
 
 }
